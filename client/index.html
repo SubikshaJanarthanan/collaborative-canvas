@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Collaborative Canvas</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Quick button styling */
+        #controls button {
+            padding: 8px 12px;
+            margin-right: 5px;
+            border: 1px solid #333;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #controls button:hover {
+            background-color: #eee;
+        }
+
+        #controls label {
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        #strokeWidthSlider {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="drawingCanvas"></canvas>
+
+    <button id="undoBtn">Undo</button>
+
+    <!-- Controls: colors, eraser, width slider -->
+    <div id="controls" style="position: absolute; top: 20px; left: 20px; z-index: 10;">
+        <button data-color="#000000">Black</button>
+        <button data-color="#FF0000">Red</button>
+        <button data-color="#00FF00">Green</button>
+        <button data-color="#0000FF">Blue</button>
+        <button id="eraser">Eraser</button>
+        <label for="strokeWidthSlider">Width:</label>
+        <input type="range" id="strokeWidthSlider" min="1" max="50" value="2">
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="canvas.js"></script>
+    <script src="websocket.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
